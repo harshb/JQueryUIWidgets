@@ -1,0 +1,41 @@
+﻿
+
+@{
+    ViewBag.Title = "Simple";
+}
+
+
+<script type="text/JavaScript">
+    jQuery(document).ready(function () {
+
+        //calling the index method will not work (i.e. /Simple )
+        $.getJSON('/Simple/GetData', { param: 'nothing' }, function (data) {
+
+            $("#searchTemplate").tmpl(data).appendTo("#usernames");
+
+        });
+    });
+</script>
+
+
+<h2>Simple fetching of data using REST</h2>
+
+<!--JQuery Template-->
+
+
+
+<script id ="searchTemplate" type = "text/html">
+
+<li class="user">
+  ${Title}  <span class="klout" data-klout-username=${Title} ></span> 
+ </li>
+</script>
+
+
+
+<div class="column span-24">
+   
+    <div id ='usernames'></div>
+
+</div>
+
